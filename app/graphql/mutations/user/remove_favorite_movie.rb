@@ -7,7 +7,7 @@ module Mutations
 
       description I18n.t('graphql.mutations.user.remove_favorite_movie.desc')
 
-      argument :input, Types::Inputs::UserFavoriteMovieInput, required: true
+      argument :input, Types::Inputs::UserItemIdInput, required: true
 
       def resolve(input:)
         match_operation ::User::Operation::RemoveFavoriteMovie.call(

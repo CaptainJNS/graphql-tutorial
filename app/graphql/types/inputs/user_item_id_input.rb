@@ -2,10 +2,10 @@
 
 module Types
   module Inputs
-    class UserFavoriteMovieInput < ::Types::Base::InputObject
-      I18N_PATH = 'graphql.inputs.user.favorite_movie'
+    class UserItemIdInput < ::Types::Base::InputObject
+      I18N_PATH = 'graphql.inputs.user.item_id'
 
-      graphql_name 'UserFavoriteMovieInput'
+      graphql_name 'UserItemIdInput'
 
       description I18n.t("#{I18N_PATH}.desc")
 

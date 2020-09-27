@@ -19,6 +19,10 @@ en:
           desc: Removes favorite movie
         add_favorite_movie:
           desc: Adds favorite movie
+        create_list:
+          desc: Creates a new user's list
+        delete_list:
+          desc: Deletes user's list
       auth:
         refresh_token:
           desc: Updating current access token with refresh token

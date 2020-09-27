@@ -50,7 +50,7 @@ module GraphQL
 
     def user_add_favorite_movie_mutation
       %(
-        mutation userAddFavoriteMovie($input: UserFavoriteMovieInput!) {
+        mutation userAddFavoriteMovie($input: UserItemIdInput!) {
           userAddFavoriteMovie(input: $input) {
             id
             title
@@ -61,7 +61,7 @@ module GraphQL
 
     def user_remove_favorite_movie_mutation
       %(
-        mutation userRemoveFavoriteMovie($input: UserFavoriteMovieInput!) {
+        mutation userRemoveFavoriteMovie($input: UserItemIdInput!) {
           userRemoveFavoriteMovie(input: $input) {
             removedMovieId
           }
@@ -121,12 +121,10 @@ module GraphQL
           userCreateList(input: $input) {
             id
             lists {
-              nodes {
+              id
+              name
+              items {
                 id
-                name
-                items {
-                  id
-                }
               }
             }
           }
@@ -136,7 +134,7 @@ module GraphQL
 
     def user_delete_list_mutation
       %(
-        mutation userDeleteList($input: DeleteInput!) {
+        mutation userDeleteList($input: UserItemIdInput!) {
           userDeleteList(input: $input) {
             deletedListId
           }

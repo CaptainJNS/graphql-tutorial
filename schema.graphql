@@ -19,6 +19,16 @@ type AuthTokenType {
 }
 
 """
+Deleted list type
+"""
+type DeletedListType {
+  """
+  Deleted List id
+  """
+  deletedListId: String!
+}
+
+"""
 Interface for images
 """
 interface ImageInterface {
@@ -26,6 +36,26 @@ interface ImageInterface {
   Image file path
   """
   filePath: String
+}
+
+"""
+List type
+"""
+type ListType implements NodeInterface {
+  """
+  Globally unique identifier
+  """
+  id: ID!
+
+  """
+  List movies
+  """
+  items: [MovieType!]!
+
+  """
+  List name
+  """
+  name: String!
 }
 
 """
@@ -103,7 +133,7 @@ type MovieType implements NodeInterface {
   budget: Int
 
   """
-  Movie's id
+  Globally unique identifier
   """
   id: ID!
 
@@ -157,12 +187,22 @@ type Mutation {
   """
   Adds favorite movie
   """
-  userAddFavoriteMovie(input: UserFavoriteMovieInput!): MovieType!
+  userAddFavoriteMovie(input: UserItemIdInput!): MovieType!
+
+  """
+  Creates a new user's list
+  """
+  userCreateList(input: UserCreateListInput!): UserAccountType!
+
+  """
+  Deletes user's list
+  """
+  userDeleteList(input: UserItemIdInput!): DeletedListType!
 
   """
   Removes favorite movie
   """
-  userRemoveFavoriteMovie(input: UserFavoriteMovieInput!): RemovedMovieType!
+  userRemoveFavoriteMovie(input: UserItemIdInput!): RemovedMovieType!
 
   """
   Sign in a user
@@ -236,6 +276,11 @@ type PosterType implements ImageInterface {
 }
 
 type Query {
+  """
+  Query to get the list by id
+  """
+  list(id: ID!): ListType!
+
   """
   Get current user
   """
@@ -327,17 +372,32 @@ type UserAccountType implements Node {
   id: ID!
 
   """
+  User's lists
+  """
+  lists: [ListType!]!
+
+  """
   User account's profile
   """
   userProfile: UserProfileType
 }
 
 """
-Create or destroy favorite movie via id
+Create new users list
 """
-input UserFavoriteMovieInput {
+input UserCreateListInput {
   """
-  favorite_movie_id if destroy, movie_id if create
+  Name of the new list
+  """
+  name: String!
+}
+
+"""
+Create or destroy item via id
+"""
+input UserItemIdInput {
+  """
+  id for destroy/creation
   """
   id: ID!
 }
