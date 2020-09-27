@@ -15,6 +15,8 @@ en:
             completed: will return true if the user log out
         sign_in:
           desc: Sign in a user
+        remove_favorite_movie:
+          desc: Removes favorite movie
       auth:
         refresh_token:
           desc: Updating current access token with refresh token

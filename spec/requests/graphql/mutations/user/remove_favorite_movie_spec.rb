@@ -4,11 +4,10 @@ describe 'mutation userRemoveFavoriteMovie', type: :request do
   let(:user_account) { create :user_account }
 
   let(:payload) { { account_id: user_account.id } }
-  let(:token) { JWTSessions::Session.new(payload: payload).login[:access] }
-
+  let(:token) { JWTSessions::Session.new(payload: payload, refresh_payload: payload).login[:refresh] }
   let(:movie) { create :movie }
   let(:favorite_movie) { create(:favorite_movie, user_account: user_account, movie: movie) }
-  let(:variables) { { input: { movie_id: movie.id } } }
+  let(:variables) { { input: { id: movie.id } } }
 
   before { favorite_movie }
 
@@ -17,7 +16,7 @@ describe 'mutation userRemoveFavoriteMovie', type: :request do
       graphql_post(
         query: user_remove_favorite_movie_mutation,
         variables: variables,
-        headers: { 'Authorization': "Bearer #{token}" }
+        headers: { 'X-Refresh-Token': "Bearer #{token}" }
       )
 
       expect(response).to match_schema(User::RemoveFavoriteMovieSchema::Success)

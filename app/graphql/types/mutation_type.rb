@@ -7,5 +7,8 @@ module Types
     field :user_sign_in, mutation: Mutations::User::SignIn
 
     field :refresh_token, mutation: Mutations::Auth::RefreshToken
+
+    # field :user_add_list_item, mutation: Mutations::User::AddListItem
+    field :user_remove_favorite_movie, mutation: Mutations::User::RemoveFavoriteMovie
   end
 end
