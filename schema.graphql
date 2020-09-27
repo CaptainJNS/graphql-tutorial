@@ -155,6 +155,11 @@ type Mutation {
   refreshToken: RefreshedAccessPayloadType!
 
   """
+  Removes favorite movie
+  """
+  userRemoveFavoriteMovie(input: UserRemoveFavoriteMovieInput!): RemovedMovieType!
+
+  """
   Sign in a user
   """
   userSignIn(input: UserSignInInput!): AuthTokenType!
@@ -283,6 +288,16 @@ type RefreshedAccessPayloadType {
 }
 
 """
+Removed movie type
+"""
+type RemovedMovieType {
+  """
+  Removed Movie id
+  """
+  removedMovieId: String!
+}
+
+"""
 User sign out
 """
 type SignOutType {
@@ -335,6 +350,16 @@ type UserProfileType implements Node {
   User's last name
   """
   lastName: String!
+}
+
+"""
+Remove fav movie via id
+"""
+input UserRemoveFavoriteMovieInput {
+  """
+  favorite_movie_id
+  """
+  id: ID!
 }
 
 """
