@@ -19,8 +19,18 @@ module Types
           null: true,
           description: I18n.t("#{I18N_PATH}.fields.user_profile")
 
+    field :lists, [ListType], null: false, description: I18n.t("#{I18N_PATH}.fields.lists")
+
+    def lists
+      BatchLoader::GraphQL.for(object.id).batch(default_value: [], key: object.id) do |record_ids, loader|
+        ::List
+          .where(user_account_id: record_ids)
+          .each do |list|
+            loader.call(object.id) { |memo| memo << list }
+          end
+      end
+    end
     # Home task
-    # field :lists
     # field :watch_list_movies
     # field :favorite_movies
   end

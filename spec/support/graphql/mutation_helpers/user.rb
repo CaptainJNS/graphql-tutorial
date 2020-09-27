@@ -50,11 +50,10 @@ module GraphQL
 
     def user_add_favorite_movie_mutation
       %(
-        mutation userAddFavoriteMovie($input: UserAddFavoriteMovieInput!) {
+        mutation userAddFavoriteMovie($input: UserItemIdInput!) {
           userAddFavoriteMovie(input: $input) {
             id
             title
-            isFavorite
           }
         }
       )
@@ -62,9 +61,9 @@ module GraphQL
 
     def user_remove_favorite_movie_mutation
       %(
-        mutation userRemoveFavoriteMovie($input: UserRemoveFavoriteMovieInput!) {
+        mutation userRemoveFavoriteMovie($input: UserItemIdInput!) {
           userRemoveFavoriteMovie(input: $input) {
-            removedMovieId
+            deletedItemId
           }
         }
       )
@@ -72,11 +71,10 @@ module GraphQL
 
     def user_add_watchlist_movie_mutation
       %(
-        mutation userAddWatchlistMovie($input: UserAddWatchlistMovieInput!) {
+        mutation userAddWatchlistMovie($input: UserItemIdInput!) {
           userAddWatchlistMovie(input: $input) {
             id
             title
-            isWatchlist
           }
         }
       )
@@ -84,9 +82,9 @@ module GraphQL
 
     def user_remove_watchlist_movie_mutation
       %(
-        mutation userRemoveWatchlistMovie($input: UserRemoveWatchlistMovieInput!) {
+        mutation userRemoveWatchlistMovie($input: UserItemIdInput!) {
           userRemoveWatchlistMovie(input: $input) {
-            removedMovieId
+            deletedItemId
           }
         }
       )
@@ -94,7 +92,7 @@ module GraphQL
 
     def user_list_add_item_mutation
       %(
-        mutation userAddListItem($input: UserAddListItemInput!) {
+        mutation userAddListItem($input: UserListItemInput!) {
           userAddListItem(input: $input) {
             id
             items {
@@ -108,9 +106,9 @@ module GraphQL
 
     def user_list_remove_item_mutation
       %(
-        mutation userRemoveListItem($input: UserRemoveListItemInput!) {
+        mutation userRemoveListItem($input: UserListItemInput!) {
           userRemoveListItem(input: $input) {
-            removedMovieId
+            deletedItemId
           }
         }
       )
@@ -122,12 +120,10 @@ module GraphQL
           userCreateList(input: $input) {
             id
             lists {
-              nodes {
+              id
+              name
+              items {
                 id
-                name
-                items {
-                  id
-                }
               }
             }
           }
@@ -137,9 +133,9 @@ module GraphQL
 
     def user_delete_list_mutation
       %(
-        mutation userDeleteList($input: DeleteInput!) {
+        mutation userDeleteList($input: UserItemIdInput!) {
           userDeleteList(input: $input) {
-            deletedListId
+            deletedItemId
           }
         }
       )

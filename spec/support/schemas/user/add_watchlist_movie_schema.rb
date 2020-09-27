@@ -9,7 +9,6 @@ module User
         required(:userAddWatchlistMovie).schema do
           required(:id).filled(:str?)
           required(:title).filled(:str?)
-          required(:isWatchlist).value(eql?: true)
         end
       end
     end

@@ -9,7 +9,6 @@ module User
         required(:userAddFavoriteMovie).schema do
           required(:id).filled(:str?)
           required(:title).filled(:str?)
-          required(:isFavorite).value(eql?: true)
         end
       end
     end

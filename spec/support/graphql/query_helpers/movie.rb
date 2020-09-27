@@ -74,21 +74,43 @@ module GraphQL
 
     def trending_movies_query
       %(
-        query trendingMovies {
-          trendingMovies {
-            id
-            title
-            originalTitle
-            overview
-            revenue
-            budget
-            runtime
-            originalLanguage
-            poster {
-              filePath
+        query trendingMovies(
+          $after: String
+          $before: String
+          $first: Int
+          $last: Int
+        ) {
+          trendingMovies(
+            after: $after
+            before: $before
+            first: $first
+            last: $last
+          ) {
+            totalCount
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
-            images {
-              filePath
+            edges {
+              cursor
+              node {
+                id
+                title
+                originalTitle
+                overview
+                revenue
+                budget
+                runtime
+                originalLanguage
+                poster {
+                  filePath
+                }
+                images {
+                  filePath
+                }
+              }
             }
           }
         }

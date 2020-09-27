@@ -8,13 +8,11 @@ module User
       required(:data).schema do
         required(:userCreateList).schema do
           required(:id).filled(:str?)
-          required(:lists).schema do
-            required(:nodes).each do
+          required(:lists).each do
+            required(:id).filled(:str?)
+            required(:name).filled(:str?)
+            required(:items).each do
               required(:id).filled(:str?)
-              required(:name).filled(:str?)
-              required(:items).each do
-                required(:id).filled(:str?)
-              end
             end
           end
         end
