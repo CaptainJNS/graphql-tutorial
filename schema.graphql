@@ -190,6 +190,16 @@ type Mutation {
   userAddFavoriteMovie(input: UserItemIdInput!): MovieType!
 
   """
+  Adds movie to user's list
+  """
+  userAddListItem(input: UserListItemInput!): ListType!
+
+  """
+  Creates user's watchlist movie
+  """
+  userAddWatchlistMovie(input: UserItemIdInput!): MovieType!
+
+  """
   Creates a new user's list
   """
   userCreateList(input: UserCreateListInput!): UserAccountType!
@@ -203,6 +213,16 @@ type Mutation {
   Removes favorite movie
   """
   userRemoveFavoriteMovie(input: UserItemIdInput!): DeletedItemType!
+
+  """
+  Removes movie from user's list
+  """
+  userRemoveListItem(input: UserListItemInput!): DeletedItemType!
+
+  """
+  Deletes user's watchlist movie
+  """
+  userRemoveWatchlistMovie(input: UserItemIdInput!): DeletedItemType!
 
   """
   Sign in a user
@@ -416,6 +436,21 @@ input UserItemIdInput {
   id for destroy/creation
   """
   id: ID!
+}
+
+"""
+Add/Remove movie in user's list
+"""
+input UserListItemInput {
+  """
+  User's list ID
+  """
+  listId: ID!
+
+  """
+  Movie ID
+  """
+  movieId: ID!
 }
 
 """

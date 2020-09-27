@@ -16,5 +16,8 @@ module Types
 
     field :user_add_list_item, mutation: Mutations::User::List::AddItem
     field :user_remove_list_item, mutation: Mutations::User::List::RemoveItem
+
+    field :user_add_watchlist_movie, mutation: Mutations::User::WatchlistMovie::Create
+    field :user_remove_watchlist_movie, mutation: Mutations::User::WatchlistMovie::Delete
   end
 end

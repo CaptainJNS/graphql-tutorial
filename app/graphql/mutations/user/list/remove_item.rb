@@ -6,7 +6,7 @@ module Mutations
       class RemoveItem < AuthenticableMutation
         type Types::DeletedItemType
 
-        description I18n.t('graphql.mutations.user.list_add_item.desc')
+        description I18n.t('graphql.mutations.user.list_remove_item.desc')
 
         argument :input, Types::Inputs::UserListItemInput, required: true
 

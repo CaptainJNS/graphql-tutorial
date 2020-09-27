@@ -71,11 +71,10 @@ module GraphQL
 
     def user_add_watchlist_movie_mutation
       %(
-        mutation userAddWatchlistMovie($input: UserAddWatchlistMovieInput!) {
+        mutation userAddWatchlistMovie($input: UserItemIdInput!) {
           userAddWatchlistMovie(input: $input) {
             id
             title
-            isWatchlist
           }
         }
       )
@@ -83,7 +82,7 @@ module GraphQL
 
     def user_remove_watchlist_movie_mutation
       %(
-        mutation userRemoveWatchlistMovie($input: UserRemoveWatchlistMovieInput!) {
+        mutation userRemoveWatchlistMovie($input: UserItemIdInput!) {
           userRemoveWatchlistMovie(input: $input) {
             deletedItemId
           }
