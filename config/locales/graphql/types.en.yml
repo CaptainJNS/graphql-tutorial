@@ -44,6 +44,7 @@ en:
       movie_type:
         desc: Movie type
         fields:
+          id: Movie's id
           title: Movie's title
           budget: Movie's budget
           images: Movie's images

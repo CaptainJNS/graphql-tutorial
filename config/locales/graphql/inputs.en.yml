@@ -10,10 +10,10 @@ en:
             email: User's account email
             password: User's account password
             password_confirmation: User's account password confirmation
-        remove_favorite_movie:
-          desc: Remove fav movie via id
+        favorite_movie:
+          desc: Create or destroy favorite movie via id
           args:
-            id: favorite_movie_id
+            id: favorite_movie_id if destroy, movie_id if create
         sign_in_input:
           desc: Sign in user via email
           args:

@@ -8,6 +8,7 @@ module Types
     implements Types::Interfaces::NodeInterface
     description I18n.t("#{I18N_PATH}.desc")
 
+    field :id, ID, null: false, description: I18n.t("#{I18N_PATH}.fields.id")
     field :title, String, null: false, description: I18n.t("#{I18N_PATH}.fields.title")
     field :original_title, String, null: true, description: I18n.t("#{I18N_PATH}.fields.original_title")
     field :overview, String, null: true, description: I18n.t("#{I18N_PATH}.fields.overview")

@@ -17,6 +17,8 @@ en:
           desc: Sign in a user
         remove_favorite_movie:
           desc: Removes favorite movie
+        add_favorite_movie:
+          desc: Adds favorite movie
       auth:
         refresh_token:
           desc: Updating current access token with refresh token

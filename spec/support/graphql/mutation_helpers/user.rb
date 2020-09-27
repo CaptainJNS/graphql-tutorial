@@ -50,11 +50,10 @@ module GraphQL
 
     def user_add_favorite_movie_mutation
       %(
-        mutation userAddFavoriteMovie($input: UserAddFavoriteMovieInput!) {
+        mutation userAddFavoriteMovie($input: UserFavoriteMovieInput!) {
           userAddFavoriteMovie(input: $input) {
             id
             title
-            isFavorite
           }
         }
       )
@@ -62,7 +61,7 @@ module GraphQL
 
     def user_remove_favorite_movie_mutation
       %(
-        mutation userRemoveFavoriteMovie($input: UserRemoveFavoriteMovieInput!) {
+        mutation userRemoveFavoriteMovie($input: UserFavoriteMovieInput!) {
           userRemoveFavoriteMovie(input: $input) {
             removedMovieId
           }

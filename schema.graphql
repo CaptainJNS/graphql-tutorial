@@ -103,7 +103,7 @@ type MovieType implements NodeInterface {
   budget: Int
 
   """
-  Globally unique identifier
+  Movie's id
   """
   id: ID!
 
@@ -155,9 +155,14 @@ type Mutation {
   refreshToken: RefreshedAccessPayloadType!
 
   """
+  Adds favorite movie
+  """
+  userAddFavoriteMovie(input: UserFavoriteMovieInput!): MovieType!
+
+  """
   Removes favorite movie
   """
-  userRemoveFavoriteMovie(input: UserRemoveFavoriteMovieInput!): RemovedMovieType!
+  userRemoveFavoriteMovie(input: UserFavoriteMovieInput!): RemovedMovieType!
 
   """
   Sign in a user
@@ -328,6 +333,16 @@ type UserAccountType implements Node {
 }
 
 """
+Create or destroy favorite movie via id
+"""
+input UserFavoriteMovieInput {
+  """
+  favorite_movie_id if destroy, movie_id if create
+  """
+  id: ID!
+}
+
+"""
 User profile
 """
 type UserProfileType implements Node {
@@ -350,16 +365,6 @@ type UserProfileType implements Node {
   User's last name
   """
   lastName: String!
-}
-
-"""
-Remove fav movie via id
-"""
-input UserRemoveFavoriteMovieInput {
-  """
-  favorite_movie_id
-  """
-  id: ID!
 }
 
 """
