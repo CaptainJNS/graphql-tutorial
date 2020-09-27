@@ -72,29 +72,6 @@ module GraphQL
       )
     end
 
-    # def trending_movies_query
-    #   %(
-    #     query trendingMovies {
-    #       trendingMovies {
-    #         id
-    #         title
-    #         originalTitle
-    #         overview
-    #         revenue
-    #         budget
-    #         runtime
-    #         originalLanguage
-    #         poster {
-    #           filePath
-    #         }
-    #         images {
-    #           filePath
-    #         }
-    #       }
-    #     }
-    #   )
-    # end
-
     def trending_movies_query
       %(
         query trendingMovies(
