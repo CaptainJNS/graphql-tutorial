@@ -19,13 +19,13 @@ type AuthTokenType {
 }
 
 """
-Deleted list type
+Deleted item type
 """
-type DeletedListType {
+type DeletedItemType {
   """
-  Deleted List id
+  Deleted Item id
   """
-  deletedListId: String!
+  deletedItemId: String!
 }
 
 """
@@ -197,12 +197,12 @@ type Mutation {
   """
   Deletes user's list
   """
-  userDeleteList(input: UserItemIdInput!): DeletedListType!
+  userDeleteList(input: UserItemIdInput!): DeletedItemType!
 
   """
   Removes favorite movie
   """
-  userRemoveFavoriteMovie(input: UserItemIdInput!): RemovedMovieType!
+  userRemoveFavoriteMovie(input: UserItemIdInput!): DeletedItemType!
 
   """
   Sign in a user
@@ -335,16 +335,6 @@ type RefreshedAccessPayloadType {
   Token for signed cookies
   """
   csrf: String!
-}
-
-"""
-Removed movie type
-"""
-type RemovedMovieType {
-  """
-  Removed Movie id
-  """
-  removedMovieId: String!
 }
 
 """

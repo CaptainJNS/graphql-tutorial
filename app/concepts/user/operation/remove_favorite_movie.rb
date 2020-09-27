@@ -11,7 +11,7 @@ module User::Operation
     end
 
     def result(ctx, model:, **)
-      ctx['result'] = { removed_movie_id: model.id }
+      ctx['result'] = { deleted_item_id: model.id }
     end
   end
 end

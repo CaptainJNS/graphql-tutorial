@@ -59,16 +59,12 @@ en:
         fields:
           id: Image id
           filepath: Image file path
-      removed_movie:
-        desc: Removed movie type
+      deleted_item:
+        desc: Deleted item type
         fields:
-          removed_movie_id: Removed Movie id
+          deleted_item_id: Deleted Item id
       list_type:
         desc: List type
         fields:
           name: List name
           items: List movies
-      deleted_list:
-        desc: Deleted list type
-        fields:
-          deleted_list_id: Deleted List id
