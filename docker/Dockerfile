@@ -1,11 +1,11 @@
 ARG RUBY_VERSION
 
-FROM ruby:$RUBY_VERSION-buster
+FROM ruby:2.6.3-buster
 
-ARG PG_MAJOR
-ARG NODE_MAJOR
-ARG BUNDLER_VERSION
-ARG YARN_VERSION
+ENV PG_MAJOR 11
+ENV NODE_MAJOR 12
+ENV BUNDLER_VERSION 2.0.2
+ENV YARN_VERSION 1.19.2-1
 
 # Add PostgreSQL to sources list
 RUN curl -sSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
