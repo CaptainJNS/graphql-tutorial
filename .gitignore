@@ -27,3 +27,6 @@
 
 # Ignore gems installed with rbenv gemset
 /.gems/*
+
+# Deploy
+deploy/bin/variables/variables.sh

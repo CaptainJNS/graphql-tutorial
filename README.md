@@ -39,3 +39,11 @@ Run `docker-compose up` (or `docker-compose up --build` if you've done some chan
 To enter rails console the container run `docker container exec -it graphql_meetup_rails_1 rails c`.
 To stop the containers run `docker-compose down`.
 To stop the containers and remove volumes run `docker-compose down --volumes`.
+
+#### Deploy
+
+Run:
+ - `terraform init` (at first time)
+ - `terraform apply` (at first time)
+ - `deploy/bin/build/nginx_image.sh` (at first time)
+ - `deploy/bin/deploy/staging.sh`
