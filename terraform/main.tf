@@ -12,6 +12,7 @@ provider "template" {
 
 terraform {
   backend "s3" {
+    bucket = "graphql-meetup-terraform-state"
     region  = "eu-west-2"
     key     = "terraform/terraform.tfstate"
     encrypt = true
