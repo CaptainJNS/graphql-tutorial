@@ -5,10 +5,9 @@ describe 'mutation userRemoveFavoriteMovie', type: :request do
 
   let(:payload) { { account_id: user_account.id } }
   let(:token) { JWTSessions::Session.new(payload: payload).login[:access] }
-
   let(:movie) { create :movie }
   let(:favorite_movie) { create(:favorite_movie, user_account: user_account, movie: movie) }
-  let(:variables) { { input: { movie_id: movie.id } } }
+  let(:variables) { { input: { id: favorite_movie.id } } }
 
   before { favorite_movie }
 

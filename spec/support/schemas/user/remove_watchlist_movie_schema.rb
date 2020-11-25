@@ -7,7 +7,7 @@ module User
 
       required(:data).schema do
         required(:userRemoveWatchlistMovie).schema do
-          required(:removedMovieId).filled(:str?)
+          required(:deletedItemId).filled(:str?)
         end
       end
     end

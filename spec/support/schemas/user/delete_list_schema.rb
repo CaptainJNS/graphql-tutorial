@@ -7,7 +7,7 @@ module User
 
       required(:data).schema do
         required(:userDeleteList).schema do
-          required(:deletedListId).filled(:str?)
+          required(:deletedItemId).filled(:str?)
         end
       end
     end

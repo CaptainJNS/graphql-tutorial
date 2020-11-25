@@ -7,7 +7,19 @@ module Movies
     input :hash?
 
     required(:data).schema do
-      required(:trendingMovies).each(::Schemas::Shared::MovieSchema)
+      required(:trendingMovies).schema do
+        required(:totalCount).filled(:int?)
+        required(:pageInfo).schema do
+          required(:startCursor).filled(:str?)
+          required(:endCursor).filled(:str?)
+          required(:hasNextPage).filled(:bool?)
+          required(:hasPreviousPage).filled(:bool?)
+        end
+        required(:edges).each do
+          required(:cursor).filled(:str?)
+          required(:node).schema(::Schemas::Shared::MovieSchema)
+        end
+      end
     end
   end
 end

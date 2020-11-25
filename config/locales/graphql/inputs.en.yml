@@ -15,3 +15,16 @@ en:
           args:
             email: User's account email
             password: User's account password
+        item_id:
+          desc: Create or destroy item via id
+          args:
+            id: id for destroy/creation
+        create_list:
+          desc: Create new users list
+          args:
+            name: Name of the new list
+        list_item:
+          desc: Add/Remove movie in user's list
+          args:
+            list_id: User's list ID
+            movie_id: Movie ID

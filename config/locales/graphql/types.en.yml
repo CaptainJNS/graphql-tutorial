@@ -25,6 +25,7 @@ en:
         fields:
           email: Email of user account
           user_profile: User account's profile
+          lists: User's lists
       user_profile_type:
         desc: User profile
         fields:
@@ -58,3 +59,12 @@ en:
         fields:
           id: Image id
           filepath: Image file path
+      deleted_item:
+        desc: Deleted item type
+        fields:
+          deleted_item_id: Deleted Item id
+      list_type:
+        desc: List type
+        fields:
+          name: List name
+          items: List movies
